@@ -8,7 +8,7 @@ from lxml import etree
 # from IP import headers
 from tqdm import tqdm
 from datetime import datetime, timedelta
-import urllib3, re, time, logging, match
+import urllib3, re, time, logging, match, shutil
 
 
 time_turn = {}
@@ -121,6 +121,9 @@ class HuiTun:
             'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0",
             'Cookie': "__root_domain_v=.huitun.com; _qddaz=QD.565509897799709; SESSION=Yzk0NDcwNTQtZTNmYS00YjdkLWI3YzYtNTgyMDczZWI3MGMz",
         }
+
+        if os.path.exists('./members/'):
+            shutil.rmtree('./members/')
 
     def huitun_room(self):
         for name in tqdm(self.member, desc="直播房间列表", unit="unit"):
