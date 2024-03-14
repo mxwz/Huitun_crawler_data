@@ -1,0 +1,7 @@
+tqdm
+requests
+pandas
+bs4
+urllib3
+lxml
+match
